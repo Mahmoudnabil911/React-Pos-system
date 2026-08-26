@@ -35,6 +35,7 @@ interface AppState {
   currentUser: User | null;
   token: string | null;
   isAuthenticated: boolean;
+  authReady: boolean;
   login: (email: string, password: string, rememberMe?: boolean) => Promise<void>;
   register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -116,6 +117,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   currentUser: null,
   token: null,
   isAuthenticated: false,
+  authReady: false,
   login: async (_email, _password, rememberMe = false) => {
     await new Promise((r) => setTimeout(r, 600));
     const storage = rememberMe ? localStorage : sessionStorage;
@@ -143,8 +145,12 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (token && userStr) {
       try {
         const user = JSON.parse(userStr) as User;
-        set({ currentUser: user, token, isAuthenticated: true });
-      } catch { /* ignore */ }
+        set({ currentUser: user, token, isAuthenticated: true, authReady: true });
+      } catch {
+        set({ authReady: true });
+      }
+    } else {
+      set({ authReady: true });
     }
   },
 

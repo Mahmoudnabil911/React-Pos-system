@@ -28,12 +28,16 @@ import Settings from '../features/settings/pages/Settings';
 
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const isAuthenticated = useAppStore((s) => s.isAuthenticated);
+  const authReady = useAppStore((s) => s.authReady);
+  if (!authReady) return null; // Wait for storage to be read
   if (!isAuthenticated) return <Navigate to="/auth/login" replace />;
   return <>{children}</>;
 }
 
 function PublicGuard({ children }: { children: React.ReactNode }) {
   const isAuthenticated = useAppStore((s) => s.isAuthenticated);
+  const authReady = useAppStore((s) => s.authReady);
+  if (!authReady) return null; // Wait for storage to be read
   if (isAuthenticated) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 }

@@ -113,7 +113,7 @@ export function statusBadgeClass(status: string): string {
   if (['active', 'completed', 'paid', 'received', 'good'].includes(s)) return 'badge badge-success';
   if (['pending', 'ordered', 'low'].includes(s)) return 'badge badge-warning';
   if (['inactive', 'cancelled', 'overdue', 'out of stock', 'out'].includes(s)) return 'badge badge-danger';
-  if (['vip'].includes(s)) return 'badge badge-purple';
+  if (['vip'].includes(s)) return 'badge badge-teal';
   if (['draft'].includes(s)) return 'badge badge-gray';
   if (['refunded'].includes(s)) return 'badge badge-info';
   return 'badge badge-gray';

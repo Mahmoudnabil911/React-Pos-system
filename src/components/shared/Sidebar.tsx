@@ -252,7 +252,7 @@ export default function Sidebar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 4px 12px rgb(99 102 241 / 0.35)",
+            boxShadow: "0 4px 12px rgb(5 150 105 / 0.35)",
           }}
         >
           <svg
@@ -418,8 +418,8 @@ export default function Sidebar() {
                   ? "none"
                   : "rotate(180deg)"
                 : direction === "rtl"
-                ? "rotate(180deg)"
-                : "none",
+                  ? "rotate(180deg)"
+                  : "none",
             }}
             fill="none"
             viewBox="0 0 24 24"

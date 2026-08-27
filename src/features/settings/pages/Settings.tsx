@@ -218,7 +218,7 @@ export default function Settings() {
 
           {!isLoading && (
             <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgb(var(--border-primary))', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-              <button onClick={handleSave} className="btn-primary" style={{ width: '100%' }}>{t('settings.save')}</button>
+              <button onClick={handleSave} className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>{t('settings.save')}</button>
               <button style={{ padding: '0.625rem 1.25rem', borderRadius: '0.75rem', border: '1px solid rgb(var(--border-primary))', background: 'transparent', color: 'rgb(var(--text-secondary))', fontSize: '0.875rem', fontFamily: 'var(--font-sans)', width: '100%', transition: 'background-color 0.15s' }}>
                 {t('common.cancel')}
               </button>

@@ -37,14 +37,14 @@ export default function Login() {
     <div
       className="animate-fade-in-up auth-card"
       style={{
-        background: 'rgb(var(--bg-card))',
-        padding: '3rem 2.5rem',
-        borderRadius: '1.5rem',
-        width: '100%',
-        boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.08)',
-        border: '1px solid rgb(var(--border-primary))',
-        position: 'relative',
-        overflow: 'hidden'
+        background: "rgb(var(--bg-card))",
+        padding: "3rem 2.5rem",
+        borderRadius: "1.5rem",
+        width: "100%",
+        boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.08)",
+        border: "1px solid rgb(var(--border-primary))",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       {/* Header */}
@@ -59,11 +59,21 @@ export default function Login() {
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 1.5rem",
-            boxShadow: "0 10px 25px -5px rgb(99 102 241 / 0.4)",
+            boxShadow: "0 10px 25px -5px rgb(5 150 105 / 0.4)",
           }}
         >
-          <svg style={{ width: '32px', height: '32px', color: 'white' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          <svg
+            style={{ width: "32px", height: "32px", color: "white" }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            />
           </svg>
         </div>
         <h1

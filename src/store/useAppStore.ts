@@ -92,14 +92,28 @@ export const useAppStore = create<AppState>((set, get) => ({
   theme: initialTheme,
   toggleTheme: () => {
     const next = get().theme === 'light' ? 'dark' : 'light';
-    set({ theme: next });
-    localStorage.setItem('theme', next);
-    applyTheme(next);
+    const updateTheme = () => {
+      set({ theme: next });
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    };
+    if ('startViewTransition' in document) {
+      (document as any).startViewTransition(updateTheme);
+    } else {
+      updateTheme();
+    }
   },
   setTheme: (theme) => {
-    set({ theme });
-    localStorage.setItem('theme', theme);
-    applyTheme(theme);
+    const updateTheme = () => {
+      set({ theme });
+      localStorage.setItem('theme', theme);
+      applyTheme(theme);
+    };
+    if ('startViewTransition' in document) {
+      (document as any).startViewTransition(updateTheme);
+    } else {
+      updateTheme();
+    }
   },
 
   // ─── i18n ─────────────────────────────────────────────────
@@ -107,10 +121,22 @@ export const useAppStore = create<AppState>((set, get) => ({
   direction: initialDirection,
   setLocale: (locale) => {
     const direction: Direction = locale === 'ar' ? 'rtl' : 'ltr';
-    set({ locale, direction });
-    localStorage.setItem('locale', locale);
-    applyDirection(direction);
-    i18n.changeLanguage(locale);
+    
+    const updateLanguage = () => {
+      set({ locale, direction });
+      localStorage.setItem('locale', locale);
+      applyDirection(direction);
+      i18n.changeLanguage(locale);
+    };
+
+    // Use native View Transition API for a smooth cross-fade animation when switching RTL/LTR
+    if ('startViewTransition' in document) {
+      (document as any).startViewTransition(() => {
+        updateLanguage();
+      });
+    } else {
+      updateLanguage();
+    }
   },
 
   // ─── Auth ─────────────────────────────────────────────────

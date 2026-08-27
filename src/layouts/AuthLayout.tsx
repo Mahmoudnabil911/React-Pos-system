@@ -68,7 +68,7 @@ export default function AuthLayout() {
         {/* Left Pane (Hidden on mobile) */}
         <div className="auth-hero-pane" style={{
           flex: 1,
-          background: 'linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%)',
+          background: 'var(--gradient-primary)',
           position: 'relative',
           overflow: 'hidden',
           display: 'flex',
@@ -133,8 +133,8 @@ export default function AuthLayout() {
         </div>
 
         {/* Right Pane */}
-        <div className="auth-right-pane" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-          <div style={{ width: '100%', maxWidth: '420px' }}>
+        <div className="auth-right-pane" style={{ flex: 1, display: 'flex', padding: '2rem', overflowY: 'auto' }}>
+          <div style={{ width: '100%', maxWidth: '420px', margin: 'auto' }}>
             <Outlet />
           </div>
         </div>
